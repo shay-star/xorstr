@@ -30,3 +30,33 @@ enable_testing()
 if(BUILD_TESTING)
     add_subdirectory(tests)
 endif()
+
+
+include(CMakePackageConfigHelpers)
+
+install(
+    TARGETS xorstr
+    EXPORT xorstrTargets
+)
+
+install(
+    DIRECTORY include/
+    DESTINATION include
+)
+
+install(
+    EXPORT xorstrTargets
+    NAMESPACE xorstr::
+    DESTINATION lib/cmake/xorstr
+)
+
+configure_package_config_file(
+    cmake/xorstrConfig.cmake.in
+    ${CMAKE_CURRENT_BINARY_DIR}/xorstrConfig.cmake
+    INSTALL_DESTINATION lib/cmake/xorstr
+)
+
+install(
+    FILES ${CMAKE_CURRENT_BINARY_DIR}/xorstrConfig.cmake
+    DESTINATION lib/cmake/xorstr
+)
