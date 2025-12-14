@@ -1,7 +1,9 @@
 #include <catch2/catch_test_macros.hpp>
 #include <cstring>
 #include <string_view>
-#include <xorstr.hpp>
+#include <fantasy/xorstr.hpp>
+
+using namespace fantasy;
 
 TEST_CASE("XOR_STR direct use without assignment") {
     REQUIRE(std::strcmp(XOR_STR("Hello World"), "Hello World") == 0);
