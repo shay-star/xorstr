@@ -21,8 +21,6 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     target_compile_options(${PROJECT_NAME} INTERFACE /EHsc)
     target_compile_options(${PROJECT_NAME} INTERFACE /D_HAS_EXCEPTIONS=0)
     target_compile_options(${PROJECT_NAME} INTERFACE /utf-8)
-    target_compile_options(${PROJECT_NAME} INTERFACE "$<$<CXX_COMPILER_ID:MSVC>:/source-charset:utf-8>")
-    target_compile_options(${PROJECT_NAME} INTERFACE "$<$<C_COMPILER_ID:MSVC>:/source-charset:utf-8>")
 endif()
 
 include(CTest)
